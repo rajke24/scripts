@@ -3,7 +3,7 @@ from datetime import datetime
 
 def delete_msg(unseen_for_days=0):
     mailbox = IMAPClient('imap.gmail.com', ssl=True, port=993)
-    mailbox.login('your@mail.com', 'password')
+    mailbox.login('your@mail.com', 'app password')
     inbox_mails = mailbox.select_folder('INBOX')
     print('You have total number %d of mails in your inbox' % inbox_mails[b'EXISTS'])
     seen_msg = mailbox.search('SEEN')
