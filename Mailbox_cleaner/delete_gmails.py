@@ -4,9 +4,9 @@ import os
 
 def delete_msg(unseen_for_days=0):
     mailbox = IMAPClient('imap.gmail.com', ssl=True, port=993)
-    my_gmail = os.environ.get('GMAIL')
-    gmail_app_password = os.environ.get('GMAIL_APP_PASSWORD')
-    mailbox.login(my_gmail, gmail_app_password)
+    EMAIL_ADRESS = os.environ.get('GMAIL')
+    EMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
+    mailbox.login(EMAIL_ADRESS, EMAIL_PASSWORD)
     inbox_mails = mailbox.select_folder('INBOX')
     print('You have total number %d of mails in your inbox' % inbox_mails[b'EXISTS'])
     seen_msg = mailbox.search('SEEN')
