@@ -1,6 +1,6 @@
 # Mailbox cleaner
 
-Mailbox cleaner is a Python simple app for deleting unnecessary mails from Inbox.
+Mailbox cleaner is a simple Python app for deleting unnecessary mails from Inbox.
 
 ## Steps while using
 1. Install python3 if you don't have it already.
