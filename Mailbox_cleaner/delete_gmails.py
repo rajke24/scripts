@@ -2,10 +2,11 @@ from imapclient import IMAPClient
 from datetime import datetime
 import os
 
+EMAIL_ADRESS = os.environ.get('GMAIL')
+EMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
+
 def delete_msg(unseen_for_days=0):
     mailbox = IMAPClient('imap.gmail.com', ssl=True, port=993)
-    EMAIL_ADRESS = os.environ.get('GMAIL')
-    EMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
     mailbox.login(EMAIL_ADRESS, EMAIL_PASSWORD)
     inbox_mails = mailbox.select_folder('INBOX')
     print('You have total of %d mails in your inbox' % inbox_mails[b'EXISTS'])
