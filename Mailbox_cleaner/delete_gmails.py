@@ -8,7 +8,7 @@ def delete_msg(unseen_for_days=0):
     EMAIL_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
     mailbox.login(EMAIL_ADRESS, EMAIL_PASSWORD)
     inbox_mails = mailbox.select_folder('INBOX')
-    print('You have total number %d of mails in your inbox' % inbox_mails[b'EXISTS'])
+    print('You have total of %d mails in your inbox' % inbox_mails[b'EXISTS'])
     seen_msg = mailbox.search('SEEN')
     mailbox.delete_messages(seen_msg)
     print(f'{len(seen_msg)} already seen messages has been deleted')
@@ -24,5 +24,5 @@ def delete_msg(unseen_for_days=0):
     if no_unseen_deleted > 0:
         mailbox.delete_messages(unseen_del)
 
-    print(f'{no_unseen_deleted} unseen_del for more than {unseen_for_days} days mails deleted.')
+    print(f'{no_unseen_deleted} unseen for more than {unseen_for_days} days mails deleted.')
     mailbox.logout()
